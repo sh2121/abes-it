@@ -1,17 +1,23 @@
-import MovieList from "./MovieList.jsx";
+import React from "react";
+import CounterApp from './components/CounterApp';
+import ImageApp from "./components/ImageApp";
+import(BrowserRouter,Routes,Route) from 'react-router-dom';
+import MainLayout from "./MainLayout";
+import { BrowserRouter, Route } from "react-router-dom";
+
 const App = () => {
-  return (
-    <div>
-      <h1 style={
-        {backgroundColor: "black",
-        color:"white",
-        fontsize:"20px",
-        textAlign:"center"
-        }}>Netflix Clone App</h1>
-        <MovieList />
+    return (
+        <div>
+            <BrowserRouter>
+            <Routes>
+                <Route path="/" element = {<MainLayout />}>
+                <Route path = "/counterapp" element = {<CounterApp />}/>
+                <Route path = "/imageapp" element = {<ImageApp />}/>
 
-    </div>
-  )
+                </Route>
+            </Routes>
+            </BrowserRouter>
+        </div>
+    )
+  
 }
-
-export default App
